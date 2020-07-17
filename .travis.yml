@@ -8,7 +8,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - ssh -i home.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'echo
+  - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'echo
     "CHECK DOCKER PS" && sudo docker ps'
   on:
     branch: master
