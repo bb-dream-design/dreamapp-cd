@@ -1,0 +1,14 @@
+sudo: required
+language: bash
+before_deploy:
+#  - eval "($ssh-agent -s)"
+  - mkdir -p ~/.ssh && echo "Host *" > ~/.ssh/config && echo " StrictHostKeyChecking no" >> ~/.ssh/config
+  - chmod 600 home.pem
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: 
+    #- ssh -i home.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'docker-compose --version && cd ttt/dream-cd-test && git pull && cd test-docker-compose && pwd && echo "STOP DOCKER COMPOSE" && sudo docker-compose down && echo "START DOCKER COMPOSE" && sudo docker-compose up -d && echo "CHECK DC PS" && sudo docker-compose ps && echo "CHECK DOCKER PS" && sudo docker ps'
+    - ssh -i home.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'echo "CHECK DOCKER PS" && sudo docker ps'
+  on:
+    branch: master
