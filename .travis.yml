@@ -3,7 +3,7 @@ language: bash
 before_deploy:
 - mkdir -p ~/.ssh && echo "Host *" > ~/.ssh/config && echo " StrictHostKeyChecking
   no" >> ~/.ssh/config
-- chmod 600 home.pem
+- chmod 600 aws-dream.pem
 deploy:
   provider: script
   skip_cleanup: true
