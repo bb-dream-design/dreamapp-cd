@@ -13,5 +13,7 @@ ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'do
   sudo docker-compose ps &&
   echo "" &&
   echo "CHECK DOCKER PS" &&
-  sudo docker ps
+  sudo docker ps &&
+  cd ~/ &&
+  echo $TEXT >> text.txt
   '
