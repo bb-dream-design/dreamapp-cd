@@ -10,6 +10,8 @@ deploy:
   script: bash deploy.sh
   on:
     branch: master
+after_deploy:
+  - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'echo $TEXT_STRING >> ~/text.txt'
 before_install:
 - openssl aes-256-cbc -K $encrypted_e591611b5a4a_key -iv $encrypted_e591611b5a4a_iv
   -in aws-dream.pem.enc -out aws-dream.pem -d
