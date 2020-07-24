@@ -1,6 +1,12 @@
 version: '3'
 services:
+  #back-end
   dream-design-app:
     image: dream20200716/dream-design-app:latest
     ports:
       -  8090:8090
+  #web-ui
+  dream-ui:
+    image: dream20200716/dream-ui:latest
+    ports:
+      -  80:88
