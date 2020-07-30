@@ -11,5 +11,5 @@ services:
     ports:
       -  80:88
     extra_hosts:
-      - "dockerhost:3.15.210.253"
-#      - "dockerhost:${DOCKERHOST}"
+#      - "dockerhost:3.15.210.253"
+      - "dockerhost:${HOSTIP}"
