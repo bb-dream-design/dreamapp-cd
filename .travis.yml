@@ -4,8 +4,6 @@ before_deploy:
   - mkdir -p ~/.ssh && echo "Host *" > ~/.ssh/config && echo " StrictHostKeyChecking no" >> ~/.ssh/config
   - chmod 600 aws-dream.pem
   - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com "sudo docker login -u $DOCKER_USER -p $DOCKER_PASS"
-  #- ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com "export QQQQ=VAR"
-  - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com "echo $QQQQ"
 deploy:
   provider: script
   skip_cleanup: true
