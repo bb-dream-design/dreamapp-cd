@@ -11,8 +11,7 @@ export HOSTIP=$(hostname -I | cut -d ' ' -f1) && \
 #export QQQQ="IT IS MY VAR" && \
 #echo "DOCKERHOST=" && \
 #echo $DOCKERHOST && \
-echo "HOSTIP=" && \
-echo $HOSTIP && \
+echo "HOSTIP=$HOSTIP" > .env && \
 #echo $QQQQ && \
 echo "===================" && \
 echo "STOP DOCKER COMPOSE" && \
