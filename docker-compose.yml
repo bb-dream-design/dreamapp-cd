@@ -10,3 +10,5 @@ services:
     image: dream20200716/dream-ui:latest
     ports:
       -  80:88
+    extra_hosts:
+      - dockerhost:$DOCKERHOST
