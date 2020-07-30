@@ -11,4 +11,6 @@ services:
     ports:
       -  80:88
     extra_hosts:
-      - dockerhost:$DOCKERHOST
+      - dockerhost: $DOCKERHOST
+#    environment:
+#      - dockerhost:"http://3.15.20"
