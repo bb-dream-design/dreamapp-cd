@@ -8,7 +8,9 @@ echo "=========| CHECK WHERE AM I |==========" && \
 pwd && \
 echo "" && \
 echo "=========| PULLING LATEST VERSION |==========" && \
+echo "=========| UPD BACK-END |==========" && \
 sudo docker pull dream20200716/dream-design-app:latest && \
+echo "=========| UPD UI |==========" && \
 sudo docker pull dream20200716/dream-ui:latest && \
 echo "" && \
 echo "=========| GET LOCAL HOST IP FOR PROXY_PASS REQUESTS |==========" && \
