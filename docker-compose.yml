@@ -1,10 +1,17 @@
 version: '3'
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
 services:
+
   #back-end
   dream-design-app:
     image: dream20200716/dream-design-app:latest
     ports:
       -  8090:8090
+
   #web-ui
   dream-ui:
     image: dream20200716/dream-ui:latest
@@ -13,3 +20,34 @@ services:
     extra_hosts:
 #      - "dockerhost:3.15.210.253"
       - "dockerhost:${HOSTIP}"
+
+  #process-app
+  dream-process-app:
+    image: dream20200716/dream-process-app:latest
+    ports:
+      - 8080:8080
+
+  prometheus:
+    image: prom/prometheus:v2.8.0
+    volumes:
+      - ./docker-compose/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:z
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention=400h'
+    ports:
+      - '9090:9090'
+    depends_on:
+      - dream-process-app
+
+  grafana:
+    image: grafana/grafana:6.6.1
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker-compose/grafana/provisioning/:/etc/grafana/provisioning/:z
+      - ./docker-compose/grafana/grafana.ini:/etc/grafana/grafana.ini:z

@@ -13,6 +13,9 @@ sudo docker pull dream20200716/dream-design-app:latest && \
 echo "=========| UPD UI |==========" && \
 sudo docker pull dream20200716/dream-ui:latest && \
 echo "" && \
+echo "=========| UPD PROCESS APP |==========" && \
+sudo docker pull dream20200716/dream-process-app:latest && \
+echo "" && \
 echo "=========| GET LOCAL HOST IP FOR PROXY_PASS REQUESTS |==========" && \
 #export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk "{ print  }" | cut -f2 -d: | head -n1) &&
 #echo "DOCKERHOST= $DOCKERHOST" && \
