@@ -1,9 +1,9 @@
 version: '3'
 
 volumes:
-  prometheus_data:
+  prometheus_data2:
     external: true
-  grafana_data:
+  grafana_data2:
     external: true
 
 services:
@@ -35,7 +35,7 @@ services:
     image: prom/prometheus:v2.8.0
     volumes:
       - ./docker-compose/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:z
-      - prometheus_data:/prometheus
+      - prometheus_data2:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -52,24 +52,24 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - grafana_data:/var/lib/grafana
+      - grafana_data2:/var/lib/grafana
       - ./docker-compose/grafana/provisioning/:/etc/grafana/provisioning/:z
       - ./docker-compose/grafana/grafana.ini:/etc/grafana/grafana.ini:z
 
-#  nodeexporter:
-#    image: prom/node-exporter:v0.18.1
-#    volumes:
-#      - /proc:/host/proc:ro
-#      - /sys:/host/sys:ro
-#      - /:/rootfs:ro
-#    command:
-#      - '--path.procfs=/host/proc'
-#      - '--path.rootfs=/rootfs'
-#      - '--path.sysfs=/host/sys'
-#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-#    restart: unless-stopped
-#    ports:
-#      - 9100:9100
+  nodeexporter:
+    image: prom/node-exporter:v0.18.1
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+    ports:
+      - 9100:9100
 
 #  cadvisor:
 #    image: google/cadvisor:v0.33.0
