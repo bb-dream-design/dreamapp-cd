@@ -56,20 +56,20 @@ services:
       - ./docker-compose/grafana/provisioning/:/etc/grafana/provisioning/:z
       - ./docker-compose/grafana/grafana.ini:/etc/grafana/grafana.ini:z
 
-  nodeexporter:
-    image: prom/node-exporter:v0.18.1
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
-    restart: unless-stopped
-    ports:
-      - 9100:9100
+#  nodeexporter:
+#    image: prom/node-exporter:v0.18.1
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9100:9100
 
 #  cadvisor:
 #    image: google/cadvisor:v0.33.0

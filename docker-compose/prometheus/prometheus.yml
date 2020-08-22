@@ -12,9 +12,9 @@ scrape_configs:
         
         #['host.docker.internal:8180']
 
-  - job_name: 'prometheus-node-exporter'
-    static_configs:
-      - targets: ['nodeexporter:9100']
+#  - job_name: 'prometheus-node-exporter'
+#    static_configs:
+#      - targets: ['nodeexporter:9100']
 
 #  - job_name: 'prometheus-cadvisor'
 #    static_configs:
