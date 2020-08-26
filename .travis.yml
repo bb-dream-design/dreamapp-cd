@@ -3,17 +3,17 @@ language: bash
 before_deploy:
   - mkdir -p ~/.ssh && echo "Host *" > ~/.ssh/config && echo " StrictHostKeyChecking no" >> ~/.ssh/config
   - chmod 600 aws-dream.pem
-  - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com "sudo docker login -u $DOCKER_USER -p $DOCKER_PASS"
+  - ssh -i aws-dream.pem ubuntu@ec2-18-222-248-209.us-east-2.compute.amazonaws.com "sudo docker login -u $DOCKER_USER -p $DOCKER_PASS"
 deploy:
   provider: script
   skip_cleanup: true
   #script: ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'docker-compose --version && cd dreamapp-cd && git pull && pwd && echo "STOP DOCKER COMPOSE" && sudo docker-compose down && echo "START DOCKER COMPOSE" && sudo docker-compose up -d && echo "CHECK DC PS" && sudo docker-compose ps && echo "CHECK DOCKER PS" && sudo docker ps'
   #script: bash remote-deploy.sh
-  script: ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com 'cd dreamapp-cd && git pull && bash local-deploy.sh'
+  script: ssh -i aws-dream.pem ubuntu@ec2-18-222-248-209.us-east-2.compute.amazonaws.com 'cd dreamapp-cd && git pull && bash local-deploy.sh'
   on:
     branch: master
 after_deploy:
-  - ssh -i aws-dream.pem ubuntu@ec2-3-15-210-253.us-east-2.compute.amazonaws.com "sudo docker logout"
+  - ssh -i aws-dream.pem ubuntu@ec2-18-222-248-209.us-east-2.compute.amazonaws.com "sudo docker logout"
 before_install:
 - openssl aes-256-cbc -K $encrypted_e591611b5a4a_key -iv $encrypted_e591611b5a4a_iv
   -in aws-dream.pem.enc -out aws-dream.pem -d
