@@ -106,3 +106,27 @@ sudo systemctl enable grafana-server.service
 
 // после изменения конфига в /etc/prometheus.yml
 sudo systemctl reload prometheus
+
+ссылки
+https://docs.docker.com/engine/install/ubuntu/
+https://laurvas.ru/prometheus-p1/
+(https://github.com/stefanprodan/dockprom)
+https://habr.com/ru/post/308610/
+
+UPD
+
+Графана прометеус - в докере
+
+при развертывании на новом хосте
+необходимо
+1 Установить докер и докер композ
+2 сгенерировать ключи ssh для гитхаб и добавить публичный ключ
+// ssh-keygen -t rsa -C "email"
+3 склонировать репозиторий в /home/ubuntu
+4 создать именованные вольюмы для графаны и прометея (имена в докер-композ файле)
+// sudo docker volume create
+5 изменить адреса хоста в .travis файле (перекодировать ключ достпупа при необходимости)
+6 Запустить джобу cd
+7 на прокси изменить proxy_pass в сторону нового сервера
+
+PS дашборд для node_exporter - 1860
