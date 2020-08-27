@@ -192,7 +192,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(total_process_duration{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])",
+          "expr": "rate(total_process_duration{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])/24/60/rate(totalProcessCompletedCounter{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])",
           "refId": "A"
         }
       ],
