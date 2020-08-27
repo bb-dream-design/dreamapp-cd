@@ -106,7 +106,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(total_process_cost{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])/rate(total_process_count{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])",
+          "expr": "rate(total_process_cost{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])/rate(totalProcessCompletedCounter{revision=\"$revision\",userLogin=\"$userLogin\"}[1m])",
           "refId": "A"
         }
       ],
