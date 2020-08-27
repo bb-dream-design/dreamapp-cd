@@ -62,7 +62,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Количество процессов",
+      "title": "Количество процессов, экземпляров",
       "type": "stat"
     },
     {
@@ -114,7 +114,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Стоимость процессов",
+      "title": "Стоимость процессов, у.е.",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -200,7 +200,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Длительность процессов",
+      "title": "Длительность процессов, дней",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -306,5 +306,5 @@
   "timezone": "",
   "title": "Dream Dash",
   "uid": "Qs-o2xHGk",
-  "version": 11
+  "version": 12
 }
